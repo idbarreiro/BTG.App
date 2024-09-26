@@ -1,0 +1,33 @@
+<div>
+    <h2>Historial de Transacciones</h2>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="newTransaction()">Nueva Transacción</button>
+    </div>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id Transacción</th>
+                    <th>Número</th>
+                    <th>Fondo</th>
+                    <th>Monto Mínimo</th>
+                    <th>Tipo Transacción</th>
+                    <th>Fecha de Creación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactions; let i = index">
+                    <td> {{ transaction.id }} </td>
+                    <td> {{ transaction.fundId }} </td>
+                    <td> {{ transaction.fundName }} </td>
+                    <td> {{ transaction.amount }} </td>
+                    <td> {{ transaction.type }} </td>
+                    <td> {{ transaction.date }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

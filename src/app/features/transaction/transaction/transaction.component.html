@@ -1,0 +1,52 @@
+<section>
+    <div>
+        <h2>Registro de Nueva Transacción</h2>
+    </div>
+    <div>
+        <div class="mb-3">
+            <label for="FormControlEmail" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="FormControlEmail" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+            <label for="FormControlPhone" class="form-label">Celular</label>
+            <input type="tel" class="form-control" id="FormControlEmail" >
+        </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un tipo de notificación</option>
+                <option value="1">email</option>
+                <option value="2">sms</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un fondo de inversión</option>
+                <option value="1">FPV_BTG_PACTUAL_RECAUDADORA</option>
+                <option value="2">FPV_BTG_PACTUAL_ECOPETROL</option>
+                <option value="3">DEUDAPRIVADA</option>
+                <option value="4">FDO-ACCIONES</option>
+                <option value="5">FPV_BTG_PACTUAL_DINAMICA</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="FormControlAmount" class="form-label">Monto Minimo</label>
+            <input type="text" class="form-control" id="FormControlAmount" disabled readonly>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un tipo de transacción</option>
+                <option value="1">suscripcion</option>
+                <option value="2">cancelacion</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="FormControlDate" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="FormControlDate" placeholder="AAAA-MM-DD">
+        </div>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="createTransaction()">Guardar</button>
+    </div>
+</section>
