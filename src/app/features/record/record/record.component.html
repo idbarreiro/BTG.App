@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col">
+            <h2>Historial de Transacciones</h2>
+        </div>
+        <div class="col text-end">
+            <button type="button" class="btn btn-primary" (click)="newTransaction()">Nueva Transacción</button>
+        </div>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Id Transacción</th>
+                    <th>Número</th>
+                    <th>Fondo</th>
+                    <th>Monto Mínimo</th>
+                    <th>Tipo Transacción</th>
+                    <th>Fecha de Creación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactions; let i = index">
+                    <td> {{ transaction.id }} </td>
+                    <td> {{ transaction.fund.fundId }} </td>
+                    <td> {{ transaction.fund.name }} </td>
+                    <td> {{ transaction.fund.minAmount | number: '1.0-0' }} </td>
+                    <td> {{ transaction.type == 1 ? 'Suscripción' : 'Cancelación' }} </td>
+                    <td> {{ transaction.date | date: 'shortDate'  }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

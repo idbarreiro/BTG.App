@@ -1,11 +1,10 @@
-import { Client } from "../models/client";
+import { Client } from "./client";
+import { Fund } from "./fund";
 
 export interface Transaction
 {
-    fundId: number,
-    fundName: string,
-    amount: number,
-    type: string,
+    type: number,
     date: Date,
+    fund: Fund,
     client: Client
 }

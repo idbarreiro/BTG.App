@@ -4,8 +4,6 @@ import { HomeComponent } from './home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent

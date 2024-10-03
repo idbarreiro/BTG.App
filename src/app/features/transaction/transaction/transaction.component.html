@@ -1,52 +1,66 @@
-<section>
-    <div>
-        <h2>Registro de Nueva Transacción</h2>
+<section class="container mt-4">
+    <div class="row mb-3">
+        <div class="col">
+            <h2>Registro de Nueva Transacción</h2>
+        </div>
     </div>
-    <div>
-        <div class="mb-3">
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
             <label for="FormControlEmail" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="FormControlEmail" placeholder="name@example.com">
+            <input type="email" class="form-control" id="FormControlEmail" [(ngModel)]="email" placeholder="name@example.com">
         </div>
-        <div class="mb-3">
+        <div class="col-md-6 mb-3">
             <label for="FormControlPhone" class="form-label">Celular</label>
-            <input type="tel" class="form-control" id="FormControlEmail" >
+            <input type="tel" class="form-control" id="FormControlPhone" placeholder="+57 1234567890" [(ngModel)]="phone">
         </div>
-        <div class="mb-3">
-            <select class="form-select" aria-label="Default select example">
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="FormControlNotification" class="form-label">Tipo de Notificación</label>
+            <select class="form-select" id="FormControlNotification" [(ngModel)]="notificationType">
                 <option selected>Seleccione un tipo de notificación</option>
-                <option value="1">email</option>
-                <option value="2">sms</option>
+                <option value="1">Email</option>
+                <option value="2">SMS</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="FormControlFund" class="form-label">Fondo de Inversión</label>
+            <select class="form-select" id="FormControlFund" [(ngModel)]="selectedFund" (ngModelChange)="onFundChange()">
+                <option selected disabled>Seleccione un fondo de inversión</option>
+                <option *ngFor="let fund of funds" [value]="fund.id"> 
+                    {{ fund.name }} 
+                </option>
             </select>
         </div>
     </div>
-    <div>
-        <div class="mb-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Seleccione un fondo de inversión</option>
-                <option value="1">FPV_BTG_PACTUAL_RECAUDADORA</option>
-                <option value="2">FPV_BTG_PACTUAL_ECOPETROL</option>
-                <option value="3">DEUDAPRIVADA</option>
-                <option value="4">FDO-ACCIONES</option>
-                <option value="5">FPV_BTG_PACTUAL_DINAMICA</option>
-            </select>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="FormControlAmount" class="form-label">Monto Mínimo</label>
+            <input type="text" class="form-control" id="FormControlAmount" [value]="minimumAmount | number:'1.0-0'" disabled readonly>
         </div>
-        <div class="mb-3">
-            <label for="FormControlAmount" class="form-label">Monto Minimo</label>
-            <input type="text" class="form-control" id="FormControlAmount" disabled readonly>
-        </div>
-        <div class="mb-3">
-            <select class="form-select" aria-label="Default select example">
+        <div class="col-md-6 mb-3">
+            <label for="FormControlTransactionType" class="form-label">Tipo de Transacción</label>
+            <select class="form-select" id="FormControlTransactionType"  [(ngModel)]="transactionType">
                 <option selected>Seleccione un tipo de transacción</option>
-                <option value="1">suscripcion</option>
-                <option value="2">cancelacion</option>
+                <option value="1">Suscripción</option>
+                <option value="2">Cancelación</option>
             </select>
         </div>
-        <div class="mb-3">
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
             <label for="FormControlDate" class="form-label">Fecha</label>
-            <input type="date" class="form-control" id="FormControlDate" placeholder="AAAA-MM-DD">
+            <input type="date" class="form-control" id="FormControlDate">
         </div>
     </div>
-    <div>
-        <button type="button" class="btn btn-primary" (click)="createTransaction()">Guardar</button>
+
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary" (click)="createTransaction()">Guardar</button>
+        </div>
     </div>
 </section>

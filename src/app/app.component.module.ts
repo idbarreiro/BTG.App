@@ -5,6 +5,8 @@ import { HomeComponent } from './features/home/home/home.component';
 import { TransactionComponent } from './features/transaction/transaction/transaction.component';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from './services/api.service';
+import { RecordComponent } from './features/record/record/record.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,11 +14,13 @@ import { ApiService } from './services/api.service';
   declarations: [
     AppComponent,
     HomeComponent,
+    RecordComponent,
     TransactionComponent
   ],
   imports: [
     CommonModule,
-    HttpClient
+    HttpClient,
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

@@ -13,18 +13,22 @@ export class ApiService {
   
   constructor(private http: HttpClient) { }
 
-  getLatestTransactions<Response>(): Observable<Response>{
-    console.log("Entra al servicio de traer transacciones", this.apiUrl)
-    return this.http.get<Response>(`${this.apiUrl}`)
+  getAllFunds<Response>(): Observable<Response>{
+    return this.http.get<Response>(`${this.apiUrl}/Fund`)
       .pipe(catchError(this.handleError));
   }
 
-  fundSuscribe(transaction: Transaction): Observable<Transaction>{
+  getLatestTransactions<Response>(): Observable<Response>{
+    return this.http.get<Response>(`${this.apiUrl}/Transaction`)
+      .pipe(catchError(this.handleError));
+  }
+
+  createTransaction(transaction: Transaction): Observable<Transaction>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
-    return this.http.post<Transaction>(`${this.apiUrl}`, transaction, { headers })
+    return this.http.post<Transaction>(`${this.apiUrl}/Transaction`, transaction, { headers })
       .pipe(catchError(this.handleError));
   }
 

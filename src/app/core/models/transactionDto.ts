@@ -1,3 +1,5 @@
+import { Fund } from "./fund"
+
 export interface Response {
     successful: boolean,
     message: string,
@@ -8,9 +10,7 @@ export interface Response {
 export interface TransactionDto
 {
     id: string,
-    fundId: number,
-    fundName: string,
-    amount: number,
-    type: string,
-    date: string
+    type: number,
+    date: string,
+    fund: Fund
 }
